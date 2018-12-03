@@ -1,5 +1,5 @@
-#include "../../libft/libft.h"
-#include "../include/ft_printf.h"
+#include "../includes/libft/libft.h"
+#include "../includes/ft_printf.h"
 
 int			ft_printf(const char *format, ...)
 {
