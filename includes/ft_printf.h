@@ -6,7 +6,7 @@
 /*   By: ageorgey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:57:21 by ageorgey          #+#    #+#             */
-/*   Updated: 2018/12/03 18:30:15 by ageorgey         ###   ########.fr       */
+/*   Updated: 2018/12/04 17:11:50 by ageorgey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 # define FT_PRINTF_H
 # include "../libft/libft.h"
 
-typedef struct							list
-{
-	size_t				size;
-	list				*first;
-	list				*end;
-}										list;
 typedef struct							element
 {
 	char				*struntil;
 	char				*typeformat;
 	struct element		*next;
 }										element;
+typedef struct							list
+{
+	size_t				size;
+	element				*first;
+	element				*end;
+}										list;
 list			*init_list();
 element			*init_element();
 

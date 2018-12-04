@@ -6,7 +6,7 @@
 /*   By: ageorgey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:16:18 by ageorgey          #+#    #+#             */
-/*   Updated: 2018/12/03 19:57:35 by ageorgey         ###   ########.fr       */
+/*   Updated: 2018/12/04 19:09:07 by ageorgey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,30 @@ element			*init_element()
 	return (e);
 }
 
-list			boot_list(const char *format)
+list			*boot_list(const char *format, size_t n)
 {
 	list		*l;
 	element		*e;
 	size_t		i;
 
+	i = 0;
 	l = init_list();
-	while (
+	while (i < n)
+	{
+		e = init_element();
+		l->size++;
+		if (l->size == 1)
+			l->first = e;
+		else if (l->size > 1)
+			l->end = e;
+	}
+	return (l);
+}
+int			main()
+{
+	char str[100];
+
+	str[100] = "string %s string %d";
+	boot_list(str, ft_countchar(str));
+	return (0);
 }
