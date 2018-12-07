@@ -12,7 +12,7 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "../libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct							element
 {
@@ -24,7 +24,7 @@ typedef struct							list
 {
 	size_t				size;
 	element				*first;
-	element				*end;
+	element				*latest;
 }										list;
 list			*init_list();
 element			*init_element();

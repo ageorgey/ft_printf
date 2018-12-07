@@ -12,6 +12,7 @@
 
 #include "../includes/libft/libft.h"
 #include "../includes/ft_printf.h"
+#include <stdio.h>
 
 list			*init_list()
 {
@@ -26,7 +27,7 @@ list			*init_list()
 	{
 		l->size = 0;
 		l->first = NULL;
-		l->end = NULL;
+		l->latest = NULL;
 	}
 	return (l);
 }
@@ -49,30 +50,65 @@ element			*init_element()
 	return (e);
 }
 
+
 list			*boot_list(const char *format, size_t n)
 {
 	list		*l;
 	element		*e;
-	size_t		i;
 
-	i = 0;
 	l = init_list();
-	while (i < n)
+	while (l->size < n)
 	{
 		e = init_element();
 		l->size++;
 		if (l->size == 1)
+		{
 			l->first = e;
-		else if (l->size > 1)
-			l->end = e;
+			l->latest = e;
+		}
+		else
+			l->latest = e;
 	}
 	return (l);
 }
+
+list			*boot_element(const char *format, list *l)
+{
+	char		*str;
+	element		*e;
+	size_t		n;
+
+	str = ft_strcpy(str, format);
+	e = l->first;
+	n = 0;
+	while (n < l->size)
+	{
+		e->struntil = ft_strnew(ft_strnlen(str, '%'));
+		ft_putendl("2");
+		e->struntil = ft_strncpy(e->struntil, str, ft_strnlen(str, '%'));
+		ft_putendl("3");
+		str = ft_strchr(str, '%');
+		ft_putendl("4");
+		e->typeformat = ft_strnew(ft_strnlen(str, ' '));
+		ft_putendl("5");
+		ft_strncpy(e->typeformat, str, ft_strnlen(str, ' '));
+		ft_putendl("6");
+		ft_putendl(e->struntil);
+		ft_putendl("7");
+		ft_putendl(e->typeformat);
+		ft_putendl("8");
+		e = e->next;
+		ft_putendl("9");
+		n++;
+	}
+	return (l);
+}
+
 int			main()
 {
-	char str[100];
+	char str[20] = "string %s string %d";
+	list	*l;
 
-	str[100] = "string %s string %d";
-	boot_list(str, ft_countchar(str));
+	l = boot_list(str, ft_countchar(str, '%'));
 	return (0);
 }
