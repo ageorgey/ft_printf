@@ -83,6 +83,7 @@ list			*boot_element(const char *format, list *l)
 	n = 0;
 	while (n < l->size)
 	{
+		//Seg fault à partir de là
 		e->struntil = ft_strnew(ft_strnlen(str, '%'));
 		ft_putendl("2");
 		e->struntil = ft_strncpy(e->struntil, str, ft_strnlen(str, '%'));
