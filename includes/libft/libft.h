@@ -75,5 +75,6 @@ void				ft_putnbr_fd(int n, int fd);
 size_t				ft_strnlen(char *str, char c);
 size_t				ft_memnlen(void *s, char c);
 size_t				ft_countchar(const char *str, int c);
+char				*ft_strpchr(const char *s, int c);
 
 #endif

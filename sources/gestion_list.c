@@ -77,33 +77,27 @@ list			*boot_list(const char *format, size_t n)
 	return (l);
 }
 
-list			*boot_element(const char *format, list *l)
+list			*boot_element(const char *format)
 {
 	char		*str;
+	list		*l;
 	element		*e;
+	element		*new_e;
 	size_t		n;
 
 	str = ft_strcpy(str, format);
+	l = boot_list(format, ft_countchar(str, '%'));
 	e = l->first;
 	n = 0;
-	while (n < l->size)
+	while (n < l->size)//loading..
 	{
 		e->struntil = ft_strnew(ft_strnlen(str, '%'));
-		ft_putendl("2");
 		e->struntil = ft_strncpy(e->struntil, str, ft_strnlen(str, '%'));
-		ft_putendl("3");
-		str = ft_strchr(str, '%');
-		ft_putendl("4");
+		str = ft_strpchr(str, '%');
 		e->typeformat = ft_strnew(ft_strnlen(str, ' '));
-		ft_putendl("5");
 		ft_strncpy(e->typeformat, str, ft_strnlen(str, ' '));
-		ft_putendl("6");
-		ft_putendl(e->struntil);
-		ft_putendl("7");
-		ft_putendl(e->typeformat);
-		ft_putendl("8");
-		e = e->next;
-		ft_putendl("9");
+		new_e = e->next;
+		e = new_e;
 		n++;
 	}
 	return (l);
@@ -112,9 +106,8 @@ list			*boot_element(const char *format, list *l)
 int			main()
 {
 	char str[20] = "string %s string %d";
-	list	*l;
+	static list		*l;
 
-	l = boot_list(str, ft_countchar(str, '%'));
-	l = boot_element(str, l);
+	l = boot_element(str);
 	return (0);
 }
