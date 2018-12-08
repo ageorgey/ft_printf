@@ -24,7 +24,7 @@ typedef struct							list
 {
 	size_t				size;
 	element				*first;
-	element				*latest;
+	element				*last;
 }										list;
 list			*init_list();
 element			*init_element();

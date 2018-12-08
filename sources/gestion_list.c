@@ -27,7 +27,7 @@ list			*init_list()
 	{
 		l->size = 0;
 		l->first = NULL;
-		l->latest = NULL;
+		l->last = NULL;
 	}
 	return (l);
 }
@@ -55,19 +55,24 @@ list			*boot_list(const char *format, size_t n)
 {
 	list		*l;
 	element		*e;
+	element		*new_e;
 
 	l = init_list();
-	while (l->size < n)
+	while (l->size <= n)
 	{
-		e = init_element();
-		l->size++;
 		if (l->size == 1)
 		{
+			e = init_element();
 			l->first = e;
-			l->latest = e;
 		}
-		else
-			l->latest = e;
+		else if (l->size > 1)
+		{
+			new_e = init_element();
+			l->last = new_e;
+			e->next = new_e;
+			e = new_e;
+		}
+		l->size++;
 	}
 	return (l);
 }
@@ -83,7 +88,6 @@ list			*boot_element(const char *format, list *l)
 	n = 0;
 	while (n < l->size)
 	{
-		//Seg fault à partir de là
 		e->struntil = ft_strnew(ft_strnlen(str, '%'));
 		ft_putendl("2");
 		e->struntil = ft_strncpy(e->struntil, str, ft_strnlen(str, '%'));
@@ -111,5 +115,6 @@ int			main()
 	list	*l;
 
 	l = boot_list(str, ft_countchar(str, '%'));
+	l = boot_element(str, l);
 	return (0);
 }
