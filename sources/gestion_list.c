@@ -58,7 +58,7 @@ list			*boot_list(const char *format, size_t n)
 	element		*new_e;
 
 	l = init_list();
-	while (l->size <= n)
+	while (l->size < n)
 	{
 		if (l->size == 1)
 		{
@@ -77,7 +77,7 @@ list			*boot_list(const char *format, size_t n)
 	return (l);
 }
 
-list			*boot_element(const char *format)
+list			*boot_element(const char *format)//loading...
 {
 	char		*str;
 	list		*l;
@@ -87,19 +87,25 @@ list			*boot_element(const char *format)
 
 	str = ft_strcpy(str, format);
 	l = boot_list(format, ft_countchar(str, '%'));
+	ft_putendl("init_list faite");
 	e = l->first;
+	printf("adresse de e : %p\nadresse de l->first : %p\n", e, l->first);
 	n = 0;
-	while (n < l->size)//loading..
+	printf("adresse de e->struntil %p\nadresse de e->typeformat %p\n", e->struntil, e->typeformat);
+	ft_putnbr(l->size);
+	ft_putchar('\n');
+	while (n < l->size)
 	{
 		e->struntil = ft_strnew(ft_strnlen(str, '%'));
 		e->struntil = ft_strncpy(e->struntil, str, ft_strnlen(str, '%'));
 		str = ft_strpchr(str, '%');
 		e->typeformat = ft_strnew(ft_strnlen(str, ' '));
 		ft_strncpy(e->typeformat, str, ft_strnlen(str, ' '));
-		new_e = e->next;
-		e = new_e;
+		//erreur à traiter (sa mère)
+		printf("adresse de e->next : %p\n", e->next);
 		n++;
 	}
+	ft_putendl("hors du while");
 	return (l);
 }
 
