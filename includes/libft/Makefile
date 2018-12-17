@@ -27,9 +27,9 @@ C_FILES +=  ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c
 C_FILES +=  ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c
 C_FILES +=  ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c
 C_FILES +=  ft_putnbr_fd.c ft_strlcat.c ft_strnlen.c ft_memnlen.c
-C_FILES +=  ft_countchar.c ft_strpchr.c
+C_FILES +=  ft_countchar.c ft_strpchr.c ft_struntil.c
 
-O_FILES =   ft_memset.o ft_bzero.o ft_memccpy.o ft_memchr.o
+O_FILES =   ft_memset.o ft_bzero.o ft_memccpy.o ft_memchr.o ft_struntil.o
 O_FILES +=  ft_memcmp.o ft_memcpy.o ft_memmove.o ft_strlen.o
 O_FILES +=  ft_strdup.o ft_strcpy.o ft_strncpy.o ft_strcat.o
 O_FILES +=  ft_strncat.o ft_strchr.o ft_strrchr.o ft_strstr.o ft_strlcat.o
@@ -49,8 +49,6 @@ $(NAME) :
 	    @gcc -c $(FLAGS) $(C_FILES) -I.
 		@ar rc $(NAME) $(O_FILES)
 		@ranlib $(NAME)
-
-.PHONY  : all clean fclean re
 
 clean   :
 	    @/bin/rm -f $(O_FILES)
