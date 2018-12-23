@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   gestion_struct.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ageorgey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 17:57:21 by ageorgey          #+#    #+#             */
-/*   Updated: 2018/12/04 17:11:50 by ageorgey         ###   ########.fr       */
+/*   Created: 2018/12/03 18:16:18 by ageorgey          #+#    #+#             */
+/*   Updated: 2018/12/04 19:09:07 by ageorgey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include "libft/libft.h"
+#include "../includes/libft/libft.h"
+#include "../includes/ft_printf.h"
 
-typedef struct		s_format
+s_format			*init_struct()
 {
-	char	*flags;
-	char	*widith;
-	char	*precision;
-	char	*size;
-	char	*type;
-}					s_format;
-s_format			*init_struct();
-
-#endif
+	s_format		*sf;
+	if (!(sf = (s_format*)malloc(sizeof(sf))))
+	{
+		ft_putendl_fd("Allocation de mémoire impossible pour s_format !\n", 2);
+		return (NULL);
+	}
+	else
+	{
+		sf->flags = NULL;
+		sf->widith = NULL;
+		sf->precision = NULL;
+		sf->size = NULL;
+		sf->type = NULL;
+	}
+	return (sf);
+}
