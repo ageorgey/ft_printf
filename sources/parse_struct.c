@@ -13,9 +13,9 @@
 #include "../includes/libft/libft.h"
 #include "../includes/ft_printf.h"
 
-s_format			*parse_flags(char *format, s_format *sf)
+char			*parse_flags(char *format, s_format *sf)
 {
-	size_t			i;
+	size_t		i;
 
 	i = 0;
 	while ((format[i] == '#' || format[i] == '+' || format[i] == '-'
@@ -30,12 +30,12 @@ s_format			*parse_flags(char *format, s_format *sf)
 		i++;
 	}
 	sf->flags[i] = 0;
-	return (sf);
+	return (&format[i]);
 }
 
-s_format			*parse_width(char *format, s_format *sf)
+char			*parse_width(char *format, s_format *sf)
 {
-	size_t			i;
+	size_t		i;
 
 	i = 0;
 	while (format[i] != '.' && format[i])
@@ -47,12 +47,12 @@ s_format			*parse_width(char *format, s_format *sf)
 		sf->width[i] = format[i];
 		i++;
 	}
-	return (sf);
+	return (&format[i] + 1);
 }
 
-s_format			*parse_precision(char *format, s_format *sf)
+char			*parse_precision(char *format, s_format *sf)
 {
-	size_t			i;
+	size_t		i;
 
 	i = 0;
 	sf->precision = ft_strnew(1);
@@ -60,27 +60,26 @@ s_format			*parse_precision(char *format, s_format *sf)
 		sf->precision[i] = format[i];
 	else if (format[i] == '-')
 		sf->precision[i] = format[i];
-	return (sf);
+	return (&format[i] + 1);
 }
 
-s_format			*parse_size(char *format, s_format *sf)
+char			*parse_size(char *format, s_format *sf)
 {
-	size_t			i;
+	size_t		i;
 
 	i = 0;
 	sf->size = ft_strnew(3);
 	ft_strclr(sf->size);
-	while (format[i] && (format[i] != 'c' || format[i] !='s' || \
-	format[i] != 'p'))
+	while (format[i] && (format[i] == 'h' || format[i] =='l' || \
+	format[i] != 'L'))
 	{
-		if (format[i] == 'h' || format[i] == 'l' || format[i] == 'L')
-			sf->size[i] = format[i];
+		sf->size[i] = format[i];
 		i++;
 	}
-	return (sf);
+	return (&format[i] - 1);
 }
 
-s_format			*parse_type(char *format, s_format *sf)
+char			*parse_type(char *format, s_format *sf)
 {
 	sf->type = ft_strnew(1);
 	if (*format && (*format == 'c' || *format == 's' || *format == 'p'\
@@ -91,5 +90,5 @@ s_format			*parse_type(char *format, s_format *sf)
 		ft_putendl_fd("Type manquant ou non supporté", 2);
 		EXIT_FAILURE;
 	}
-	return (sf);
+	return (format + 1);
 }

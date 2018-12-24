@@ -32,6 +32,17 @@ s_format			*init_struct()
 	return (sf);
 }
 
+s_format			*parse_format(char *format, s_format *sf)
+{
+	format = ft_strchr(format, '%') + 1;
+	format = parse_flags(format, sf);
+	format = parse_width(format, sf);
+	format = parse_precision(format, sf);
+	format = parse_size(format, sf);
+	format = parse_type(format, sf);
+	return (sf);
+}
+
 int				main(int ac, char **av)
 {
 	char		*str;
@@ -41,7 +52,11 @@ int				main(int ac, char **av)
 	sf = init_struct();
 	if (ac == 2)
 	{
-		parse_type(str, sf);
+		parse_format(str, sf);
+		ft_putendl(sf->flags);
+		ft_putendl(sf->width);
+		ft_putendl(sf->precision);
+		ft_putendl(sf->size);
 		ft_putendl(sf->type);
 	}
 	else
