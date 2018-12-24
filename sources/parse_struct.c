@@ -12,15 +12,14 @@
 
 #include "../includes/libft/libft.h"
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
 s_format			*parse_flags(char *format, s_format *sf)
 {
 	size_t			i;
 
 	i = 0;
-	while (format[i] == '#' || format[i] == '+' || format[i] == '-'
-	|| format[i] == '0' || format[i] == ' ')
+	while ((format[i] == '#' || format[i] == '+' || format[i] == '-'
+	|| format[i] == '0' || format[i] == ' ') && format[i])
 		i++;
 	sf->flags = ft_strnew(i);
 	i = 0;
@@ -34,16 +33,63 @@ s_format			*parse_flags(char *format, s_format *sf)
 	return (sf);
 }
 
-f_format			*parse_width(char *format, s_format *sf)
+s_format			*parse_width(char *format, s_format *sf)
 {
 	size_t			i;
 
 	i = 0;
-	
+	while (format[i] != '.' && format[i])
+		i++;
+	sf->width = ft_strnew(i);
+	i = 0;
+	while (format[i] != '.' && format[i])
+	{
+		sf->width[i] = format[i];
+		i++;
+	}
+	return (sf);
 }
 
-int			main(int ac, char **av)
+s_format			*parse_precision(char *format, s_format *sf)
 {
-	
-	return (0);
+	size_t			i;
+
+	i = 0;
+	sf->precision = ft_strnew(1);
+	if (format[i] >= '0' && format[i] <= '9' && format[i])
+		sf->precision[i] = format[i];
+	else if (format[i] == '-')
+		sf->precision[i] = format[i];
+	return (sf);
+}
+
+s_format			*parse_size(char *format, s_format *sf)
+{
+	size_t			i;
+
+	i = 0;
+	sf->size = ft_strnew(3);
+	ft_strclr(sf->size);
+	while (format[i] && (format[i] != 'c' || format[i] !='s' || \
+	format[i] != 'p'))
+	{
+		if (format[i] == 'h' || format[i] == 'l' || format[i] == 'L')
+			sf->size[i] = format[i];
+		i++;
+	}
+	return (sf);
+}
+
+s_format			*parse_type(char *format, s_format *sf)
+{
+	sf->type = ft_strnew(1);
+	if (*format && (*format == 'c' || *format == 's' || *format == 'p'\
+	|| *format == 'f'))
+		*(sf->type) = *format;
+	else
+	{
+		ft_putendl_fd("Type manquant ou non supporté", 2);
+		EXIT_FAILURE;
+	}
+	return (sf);
 }
