@@ -10,21 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft/libft.h"
+#include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
+#include <stdio.h>
 
 char			*parse_flags(char *format, s_format *sf)
 {
 	size_t		i;
 
 	i = 0;
-	while ((format[i] == '#' || format[i] == '+' || format[i] == '-'
-	|| format[i] == '0' || format[i] == ' ') && format[i])
+	while (ft_isflags(format[i]))
 		i++;
 	sf->flags = ft_strnew(i);
 	i = 0;
-	while (format[i] == '#' || format[i] == '+' || format[i] == '-'
-	|| format[i] == '0' || format[i] == ' ')
+	while (ft_isflags(format[i]))
 	{
 		sf->flags[i] = format[i];
 		i++;
@@ -38,16 +37,17 @@ char			*parse_width(char *format, s_format *sf)
 	size_t		i;
 
 	i = 0;
-	while (format[i] != '.' && format[i])
+	while (ft_iswidth(format))
 		i++;
 	sf->width = ft_strnew(i);
 	i = 0;
-	while (format[i] != '.' && format[i])
+	while (ft_iswidth(format))
 	{
 		sf->width[i] = format[i];
 		i++;
 	}
-	return (&format[i] + 1);
+	sf->width[i] = 0;
+	return (&format[++i]);
 }
 
 char			*parse_precision(char *format, s_format *sf)
@@ -60,7 +60,8 @@ char			*parse_precision(char *format, s_format *sf)
 		sf->precision[i] = format[i];
 	else if (format[i] == '-')
 		sf->precision[i] = format[i];
-	return (&format[i] + 1);
+	sf->precision[i + 1] = '\0';
+	return (&format[++i]);
 }
 
 char			*parse_size(char *format, s_format *sf)
@@ -68,15 +69,19 @@ char			*parse_size(char *format, s_format *sf)
 	size_t		i;
 
 	i = 0;
-	sf->size = ft_strnew(3);
-	ft_strclr(sf->size);
 	while (format[i] && (format[i] == 'h' || format[i] =='l' || \
-	format[i] != 'L'))
+	format[i] == 'L'))
+		i++;
+	sf->size = ft_strnew(i);
+	i = 0;
+	while (format[i] && (format[i] == 'h' || format[i] =='l' || \
+	format[i] == 'L'))
 	{
 		sf->size[i] = format[i];
 		i++;
 	}
-	return (&format[i] - 1);
+	sf->size[i] = 0;
+	return (&format[i]);
 }
 
 char			*parse_type(char *format, s_format *sf)
@@ -90,5 +95,6 @@ char			*parse_type(char *format, s_format *sf)
 		ft_putendl_fd("Type manquant ou non supporté", 2);
 		EXIT_FAILURE;
 	}
-	return (format + 1);
+	sf->type[1] = 0;
+	return (format);
 }

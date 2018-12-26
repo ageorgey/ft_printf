@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   libftprintf                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ageorgey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -77,5 +77,8 @@ size_t				ft_memnlen(void *s, char c);
 size_t				ft_countchar(const char *str, int c);
 char				*ft_strpchr(const char *s, int c);
 void				ft_struntil(const char *str, int c);
+int					ft_isflags(int c);
+int					ft_iswidth(int c);
+int					ft_istype(int c);
 
 #endif

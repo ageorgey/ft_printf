@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME    = libft.a
+NAME    =   libftprintf.a
 
 FLAGS   =   -Wall -Werror -Wextra
 
-C_FILES =   ft_memset.c ft_bzero.c ft_memccpy.c ft_memchr.c
-C_FILES +=  ft_memcmp.c ft_memcpy.c ft_memmove.c ft_strlen.c
-C_FILES +=  ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c
+C_FILES =   ft_memset.c ft_bzero.c ft_memccpy.c ft_memchr.c ft_istype.c
+C_FILES +=  ft_memcmp.c ft_memcpy.c ft_memmove.c ft_strlen.c ft_isflags.c
+C_FILES +=  ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_iswidth.c
 C_FILES +=  ft_strncat.c ft_strchr.c ft_strrchr.c ft_strstr.c
 C_FILES +=  ft_strnstr.c ft_strcmp.c ft_strncmp.c ft_atoi.c
 C_FILES +=  ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c
@@ -30,11 +30,11 @@ C_FILES +=  ft_putnbr_fd.c ft_strlcat.c ft_strnlen.c ft_memnlen.c
 C_FILES +=  ft_countchar.c ft_strpchr.c ft_struntil.c
 
 O_FILES =   ft_memset.o ft_bzero.o ft_memccpy.o ft_memchr.o ft_struntil.o
-O_FILES +=  ft_memcmp.o ft_memcpy.o ft_memmove.o ft_strlen.o
-O_FILES +=  ft_strdup.o ft_strcpy.o ft_strncpy.o ft_strcat.o
+O_FILES +=  ft_memcmp.o ft_memcpy.o ft_memmove.o ft_strlen.o ft_istype.o
+O_FILES +=  ft_strdup.o ft_strcpy.o ft_strncpy.o ft_strcat.o ft_isflags.o
 O_FILES +=  ft_strncat.o ft_strchr.o ft_strrchr.o ft_strstr.o ft_strlcat.o
 O_FILES +=  ft_strnstr.o ft_strcmp.o ft_strncmp.o ft_strncmp.o ft_atoi.o
-O_FILES +=  ft_isdigit.o ft_isalpha.o ft_isalnum.o ft_isascii.o
+O_FILES +=  ft_isdigit.o ft_isalpha.o ft_isalnum.o ft_isascii.o ft_iswidth.o
 O_FILES +=  ft_isprint.o ft_toupper.o ft_tolower.o ft_strnew.o
 O_FILES +=  ft_memalloc.o ft_memdel.o ft_strdel.o ft_strclr.o
 O_FILES +=  ft_striter.o ft_striteri.o ft_strmap.o ft_strmapi.o ft_strequ.o
@@ -51,9 +51,9 @@ $(NAME) :
 		@ranlib $(NAME)
 
 clean   :
-	    @/bin/rm -f $(O_FILES)
+	    @rm -f $(O_FILES)
 
 fclean  : clean
-	    @/bin/rm -f $(NAME)
+	    @rm -f $(NAME)
 
 re      : fclean all
