@@ -78,7 +78,8 @@ size_t				ft_countchar(const char *str, int c);
 char				*ft_strpchr(const char *s, int c);
 void				ft_struntil(const char *str, int c);
 int					ft_isflags(int c);
-int					ft_iswidth(int c);
+int					ft_iswidth(char *str);
+int					ft_issize(int c);
 int					ft_istype(int c);
 
 #endif
