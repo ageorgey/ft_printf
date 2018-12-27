@@ -19,6 +19,8 @@ char			*parse_flags(char *format, s_format *sf)
 	size_t		i;
 
 	i = 0;
+	if (!ft_isflags(format[i]))
+		return (sf->flags = ft_strnew(0));
 	while (ft_isflags(format[i]))
 		i++;
 	sf->flags = ft_strnew(i);
@@ -37,11 +39,15 @@ char			*parse_width(char *format, s_format *sf)
 	size_t		i;
 
 	i = 0;
-	while (ft_iswidth(format))
+	if (!ft_iswidth(format))
+		return (sf->width = ft_strnew(0));
+	while (format[i] && format[i] != '.' && !ft_issize(format[i]) \
+	&& !ft_istype(format[i]))
 		i++;
 	sf->width = ft_strnew(i);
 	i = 0;
-	while (ft_iswidth(format))
+	while (format[i] && format[i] != '.' && !ft_issize(format[i]) \
+	&& !ft_istype(format[i]))
 	{
 		sf->width[i] = format[i];
 		i++;
@@ -55,13 +61,15 @@ char			*parse_precision(char *format, s_format *sf)
 	size_t		i;
 
 	i = 0;
+	if (!ft_isdigit(format[i]))
+		return (sf->precision = ft_strnew(0));
 	sf->precision = ft_strnew(1);
-	if (format[i] >= '0' && format[i] <= '9' && format[i])
+	if (ft_isdigit(format[i]))
 		sf->precision[i] = format[i];
 	else if (format[i] == '-')
 		sf->precision[i] = format[i];
-	sf->precision[i + 1] = '\0';
-	return (&format[++i]);
+	sf->precision[++i] = 0;
+	return (&format[i]);
 }
 
 char			*parse_size(char *format, s_format *sf)
@@ -69,13 +77,13 @@ char			*parse_size(char *format, s_format *sf)
 	size_t		i;
 
 	i = 0;
-	while (format[i] && (format[i] == 'h' || format[i] =='l' || \
-	format[i] == 'L'))
+	if (!ft_issize(format[i]))
+		return (sf->size = ft_strnew(0));
+	while (format[i] && ft_issize(format[i]))
 		i++;
 	sf->size = ft_strnew(i);
 	i = 0;
-	while (format[i] && (format[i] == 'h' || format[i] =='l' || \
-	format[i] == 'L'))
+	while (format[i] && ft_issize(format[i]))
 	{
 		sf->size[i] = format[i];
 		i++;

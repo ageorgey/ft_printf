@@ -35,21 +35,15 @@ s_format			*init_struct()
 s_format			*parse_format(char *format, s_format *sf)
 {
 	format = ft_strchr(format, '%') + 1;
-	ft_putendl("format = ft_strchr(format, '%') + 1;");
 	format = parse_flags(format, sf);
-	ft_putendl("format = parse_flags(format, sf);");
 	ft_putendl(sf->flags);
 	format = parse_width(format, sf);
-	ft_putendl("format = parse_width(format, sf);");
 	ft_putendl(sf->width);
 	format = parse_precision(format, sf);
-	ft_putendl("format = parse_precision(format, sf);");
 	ft_putendl(sf->precision);
 	format = parse_size(format, sf);
-	ft_putendl("format = parse_size(format, sf);");
 	ft_putendl(sf->size);
 	format = parse_type(format, sf);
-	ft_putendl("format = parse_type(format, sf);");
 	ft_putendl(sf->type);
 	return (sf);
 }
