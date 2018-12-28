@@ -6,7 +6,7 @@ int				ft_iswidth(char *str)
 		return (0);
 	while (*str && ft_isdigit(*str))
 		str++;
-	if (*str == '.' || ft_issize(*str) || ft_istype(*str) || *str)
+	if (*str == '.' || ft_issize(*str) || ft_istype(*str))
 		return (1);
 	return (0);
 }

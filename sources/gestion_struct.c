@@ -34,7 +34,8 @@ s_format			*init_struct()
 
 s_format			*parse_format(char *format, s_format *sf)
 {
-	format = ft_strchr(format, '%') + 1;
+	if (!(format = ft_strchr(format, '%') + 1))
+		return (NULL);
 	format = parse_flags(format, sf);
 	ft_putendl(sf->flags);
 	format = parse_width(format, sf);
