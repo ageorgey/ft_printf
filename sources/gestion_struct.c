@@ -28,6 +28,7 @@ s_format			*init_struct()
 		sf->precision = NULL;
 		sf->size = NULL;
 		sf->type = NULL;
+		sf->str = NULL;
 	}
 	return (sf);
 }
@@ -46,7 +47,7 @@ s_format			*parse_format(char *format, s_format *sf)
 		else if (*format ==  '%')
 		{
 			ft_putchar(*format);
-			EXIT_FAILURE;
+			EXIT_SUCCESS;
 		}
 	}
 	format = parse_flags(format, sf);
@@ -55,23 +56,4 @@ s_format			*parse_format(char *format, s_format *sf)
 	format = parse_size(format, sf);
 	parse_type(format, sf);
 	return (sf);
-}
-
-int				main(int ac, char **av)
-{
-	char		*str;
-	s_format	*sf;
-
-	str = ft_strdup(av[1]);
-	sf = init_struct();
-	if (ac == 2)
-		parse_format(str, sf);
-	else
-	{
-		ft_putendl_fd("Erreur : besoin d'un seul argument", 2);
-		EXIT_FAILURE;
-	}
-	free(str);
-	free(sf);
-	return (0);
 }
