@@ -27,6 +27,6 @@ char				*parse_flags(char *format, s_format *sf);
 char				*parse_width(char *format, s_format *sf);
 char				*parse_precision(char *format, s_format *sf);
 char				*parse_size(char *format, s_format *sf);
-char				*parse_type(char *format, s_format *sf);
+void				parse_type(char *format, s_format *sf);
 
 #endif

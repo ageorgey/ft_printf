@@ -44,7 +44,7 @@ s_format			*parse_format(char *format, s_format *sf)
 	ft_putendl(sf->precision);
 	format = parse_size(format, sf);
 	ft_putendl(sf->size);
-	format = parse_type(format, sf);
+	parse_type(format, sf);
 	ft_putendl(sf->type);
 	return (sf);
 }
