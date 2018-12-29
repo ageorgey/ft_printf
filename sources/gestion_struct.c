@@ -36,16 +36,24 @@ s_format			*parse_format(char *format, s_format *sf)
 {
 	if (!(format = ft_strchr(format, '%') + 1))
 		return (NULL);
+	if (!*format || *format == '%')
+	{
+		if (!*format)
+		{
+			ft_putendl_fd("Aucun caractère après '%'", 2);
+			EXIT_FAILURE;
+		}
+		else if (*format ==  '%')
+		{
+			ft_putchar(*format);
+			EXIT_FAILURE;
+		}
+	}
 	format = parse_flags(format, sf);
-	ft_putendl(sf->flags);
 	format = parse_width(format, sf);
-	ft_putendl(sf->width);
 	format = parse_precision(format, sf);
-	ft_putendl(sf->precision);
 	format = parse_size(format, sf);
-	ft_putendl(sf->size);
 	parse_type(format, sf);
-	ft_putendl(sf->type);
 	return (sf);
 }
 
