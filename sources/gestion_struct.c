@@ -28,6 +28,7 @@ s_format			*init_struct()
 		sf->precision = NULL;
 		sf->size = NULL;
 		sf->type = NULL;
+		sf->str = NULL;
 	}
 	return (sf);
 }
@@ -46,7 +47,7 @@ s_format			*parse_format(char *format, s_format *sf)
 		else if (*format ==  '%')
 		{
 			ft_putchar(*format);
-			EXIT_FAILURE;
+			EXIT_SUCCESS;
 		}
 	}
 	format = parse_flags(format, sf);

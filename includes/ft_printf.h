@@ -22,6 +22,7 @@ typedef struct		s_format
 	char	*precision;
 	char	*size;
 	char	*type;
+	char	*str;
 }					s_format;
 s_format			*init_struct();
 char				*parse_flags(char *format, s_format *sf);
