@@ -12,7 +12,6 @@
 
 #include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
 char			*parse_flags(char *format, s_format *sf)
 {

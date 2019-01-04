@@ -12,51 +12,26 @@
 
 #include "libftprintf.h"
 
-static int	ft_len(int n)
+char			*ft_itoa(int nbr)
 {
-	int		len;
+	char		*str;
+	size_t		i;
 
-	len = 0;
-	if (n >= 0 && n <= 9)
-		return (1);
-	if (n < 0)
-	{
-		n = -n;
-		len++;
-	}
-	while (n)
-	{
-		n = n / 10;
-		len++;
-	}
-	return (len);
-}
-
-char		*ft_itoa(int n)
-{
-	char	*str;
-	size_t	len;
-	long	nb;
-
-	nb = n;
-	len = ft_len(n);
-	if (nb < -2147483648 || nb > 2147483647)
-		return (0);
-	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	if (nb == 0)
-		str[0] = '0';
-	if (nb < 0)
+	i = ft_intlen(nbr, 10);
+	str = ft_strnew(i);
+	if (nbr < -2147483648 || nbr > 2147483647)
+		return ("Nombre non géré !\n");
+	if (nbr == 0)
+		str[i--] = '0';
+	if (nbr < 0)
 	{
 		str[0] = '-';
-		nb = -nb;
+		nbr = -nbr;
 	}
-	str[len] = '\0';
-	while (nb)
+	while (nbr)
 	{
-		len--;
-		str[len] = (nb % 10) + '0';
-		nb = nb / 10;
+		str[--i] = nbr % 10 + '0';
+		nbr = nbr / 10;
 	}
 	return (str);
 }

@@ -3,5 +3,7 @@
 
 int					ft_printf(const char *format, ...)
 {
+	va_list			ap;
+	va_start (ap, ft_countchar(
 	return (1);
 }
