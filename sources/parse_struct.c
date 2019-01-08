@@ -77,7 +77,7 @@ char			*parse_precision(char *format, s_format *sf)
 		sf->precision = ft_strnew(1);
 		ft_strclr(sf->precision);
 		sf->precision[0] = format[i];
-		return (&format[i + 1]);
+		return (&format[++i]);
 	}
 	return (format);
 }
@@ -101,7 +101,7 @@ char			*parse_size(char *format, s_format *sf)
 	return (format);
 }
 
-void			parse_type(char *format, s_format *sf)
+char			*parse_type(char *format, s_format *sf)
 {
 	size_t		i;
 
@@ -109,4 +109,5 @@ void			parse_type(char *format, s_format *sf)
 	sf->type = ft_strnew(1);
 	if (format[i] && ft_istype(format[i]))
 		sf->type[i] = format[i];
+	return (&format[++i]);
 }

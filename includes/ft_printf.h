@@ -25,10 +25,12 @@ typedef struct		s_format
 	char	*str;
 }					s_format;
 s_format			*init_struct();
+s_format			*parse_format(char *format, s_format *sf);
+char				*next_format(char *format);
 char				*parse_flags(char *format, s_format *sf);
 char				*parse_width(char *format, s_format *sf);
 char				*parse_precision(char *format, s_format *sf);
 char				*parse_size(char *format, s_format *sf);
-void				parse_type(char *format, s_format *sf);
+char				*parse_type(char *format, s_format *sf);
 
 #endif

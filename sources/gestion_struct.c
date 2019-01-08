@@ -54,6 +54,15 @@ s_format			*parse_format(char *format, s_format *sf)
 	format = parse_width(format, sf);
 	format = parse_precision(format, sf);
 	format = parse_size(format, sf);
-	parse_type(format, sf);
+	format = parse_type(format, sf);
 	return (sf);
+}
+
+char				*next_format(char *format)
+{
+	while (*format != '%')
+		++format;
+	while (!ft_istype(*format))
+		++format;
+	return (++format);
 }

@@ -2,8 +2,14 @@
 
 int				ft_istype(int c)
 {
-	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'o'
-		|| c == 'u' || c == 'x' || c == 'X' || c == 'b')
-		return (1);
+	char		*type;
+
+	type = "diouxXbcsp";
+	while (*type)
+	{
+		if (*type == c)
+			return (1);
+		type++;
+	}
 	return (0);
 }

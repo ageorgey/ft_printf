@@ -2,7 +2,14 @@
 
 int				ft_issize(int c)
 {
-	if (c == 'h' || c == 'l' || c == 'L')
-		return (1);
+	char		*size;
+
+	size = "hlL";
+	while (*size)
+	{
+		if (*size == c)
+			return (1);
+		size++;
+	}
 	return (0);
 }

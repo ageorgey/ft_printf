@@ -2,7 +2,14 @@
 
 int				ft_isflags(int c)
 {
-	if (c == '#' || c == '0' || c == ' ' || c == '+' || c == '-')
-		return (1);
+	char		*flags;
+
+	flags = "#0 +-";
+	while (*flags)
+	{
+		if (*flags == c)
+			return (1);
+		flags++;
+	}
 	return (0);
 }
