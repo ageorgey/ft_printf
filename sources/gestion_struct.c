@@ -41,7 +41,6 @@ void				free_struct(s_format *sf)
 	free(sf->size);
 	free(sf->type);
 	free(sf->str);
-	free(sf);
 }
 
 s_format			*parse_format(char *format, s_format *sf)
@@ -57,8 +56,8 @@ s_format			*parse_format(char *format, s_format *sf)
 		}
 		else if (*format ==  '%')
 		{
-			ft_putchar(*format);
-			EXIT_SUCCESS;
+			sf->str[0] = *format;
+			return (sf);
 		}
 	}
 	format = parse_flags(format, sf);

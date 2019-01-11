@@ -7,15 +7,15 @@ void			f(char *str, ...)
 	va_list		ap;
 
 	init_struct(sf);
-	sf->type = "X";
+	sf->type = "s";
 	va_start(ap, str);
-	sf = convert_diouxX(sf, ap);
+	sf = convert_csp(sf, ap);
 	ft_putendl(sf->str);
 	va_end(ap);
 }
 
 int				main(int ac, char **av)
 {
-	f("B", 42);
+	f("Bonjour", "Adam");
 	return (0);
 }

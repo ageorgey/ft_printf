@@ -33,7 +33,8 @@ char				*parse_precision(char *format, s_format *sf);
 char				*parse_size(char *format, s_format *sf);
 char				*parse_type(char *format, s_format *sf);
 void				gestion_va_list(s_format *sf, size_t count, ...);
-s_format			*convert_diouxX(s_format *sf, va_list ap);
+s_format			*convert_diouxXb(s_format *sf, va_list ap);
+s_format			*convert_csp(s_format *sf, va_list ap);
 void				free_struct(s_format *sf);
 
 #endif

@@ -31,7 +31,7 @@ s_format			*convert_bin(s_format *sf, va_list ap)
 	return (sf);
 }
 
-s_format			*convert_diouxX(s_format *sf, va_list ap)
+s_format			*convert_diouxXb(s_format *sf, va_list ap)
 {
 	if (sf->type[0] == 'd' || sf->type[0] == 'i' || sf->type[0] == 'u')
 		convert_deca(sf, ap);
