@@ -16,7 +16,7 @@
 s_format			*init_struct()
 {
 	s_format		*sf;
-	if (!(sf = (s_format*)malloc(sizeof(sf))))
+	if (!(sf = (s_format*)malloc(sizeof(*sf))))
 	{
 		ft_putendl_fd("Allocation de mémoire impossible pour s_format !", 2);
 		return (NULL);

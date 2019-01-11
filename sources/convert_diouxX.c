@@ -20,8 +20,8 @@ s_format			*convert_hexa(s_format *sf, va_list ap)
 	i = 0;
 	sf->str = ft_itoa_base(va_arg(ap, int), 16);
 	if (sf->type[0] == 'X')
-		while (sf->str)
-			ft_toupper(sf->str[i++]);
+		while (sf->str[i++])
+			sf->str[i] = ft_toupper(sf->str[i]);
 	return (sf);
 }
 
@@ -31,7 +31,7 @@ s_format			*convert_bin(s_format *sf, va_list ap)
 	return (sf);
 }
 
-void				convert_diouxX(s_format *sf, va_list ap)
+s_format			*convert_diouxX(s_format *sf, va_list ap)
 {
 	if (sf->type[0] == 'd' || sf->type[0] == 'i' || sf->type[0] == 'u')
 		convert_deca(sf, ap);
@@ -41,4 +41,5 @@ void				convert_diouxX(s_format *sf, va_list ap)
 			convert_hexa(sf, ap);
 	else if (sf->type[0] == 'b')
 		convert_bin(sf, ap);
+	return (sf);
 }

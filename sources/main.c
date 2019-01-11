@@ -3,18 +3,19 @@
 
 void			f(char *str, ...)
 {
-	va_list (ap);
 	s_format	*sf;
+	va_list		ap;
 
-	sf = init_struct();
-	sf->type = "d";
+	init_struct(sf);
+	sf->type = "X";
 	va_start(ap, str);
-	convert_diouxX(sf, ap);
+	sf = convert_diouxX(sf, ap);
+	ft_putendl(sf->str);
 	va_end(ap);
 }
 
 int				main(int ac, char **av)
 {
-	f("Bonjour", 42);
+	f("B", 42);
 	return (0);
 }

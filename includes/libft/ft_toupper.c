@@ -12,9 +12,9 @@
 
 #include "libftprintf.h"
 
-int	ft_toupper(int c)
+int				ft_toupper(int c)
 {
-	if (!(c >= 97 && c <= 122))
-		return (c);
-	return (c = c - 32);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
