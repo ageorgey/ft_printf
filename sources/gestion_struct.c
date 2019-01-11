@@ -33,6 +33,17 @@ s_format			*init_struct()
 	return (sf);
 }
 
+void				free_struct(s_format *sf)
+{
+	free(sf->flags);
+	free(sf->width);
+	free(sf->precision);
+	free(sf->size);
+	free(sf->type);
+	free(sf->str);
+	free(sf);
+}
+
 s_format			*parse_format(char *format, s_format *sf)
 {
 	if (!(format = ft_strchr(format, '%') + 1))

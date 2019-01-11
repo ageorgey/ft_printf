@@ -4,6 +4,8 @@
 int					ft_printf(const char *format, ...)
 {
 	va_list			ap;
-	va_start (ap, ft_countchar(
+
+	va_start(ap, format);
+	va_end(ap);
 	return (1);
 }

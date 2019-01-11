@@ -19,8 +19,8 @@ C_FILES +=  ft_memcmp.c ft_memcpy.c ft_memmove.c ft_strlen.c ft_isflags.c
 C_FILES +=  ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_iswidth.c
 C_FILES +=  ft_strncat.c ft_strchr.c ft_strrchr.c ft_strstr.c ft_issize.c
 C_FILES +=  ft_strnstr.c ft_strcmp.c ft_strncmp.c ft_atoi.c ft_intlen.c
-C_FILES +=  ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c
-C_FILES +=  ft_isprint.c ft_toupper.c ft_tolower.c ft_strnew.c
+C_FILES +=  ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c ft_count_ap.c
+C_FILES +=  ft_isprint.c ft_toupper.c ft_tolower.c ft_strnew.c ft_itoa_base.c
 C_FILES +=  ft_memalloc.c ft_memdel.c ft_strdel.c ft_strclr.c
 C_FILES +=  ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c
 C_FILES +=  ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c
@@ -41,7 +41,8 @@ O_FILES +=  ft_striter.o ft_striteri.o ft_strmap.o ft_strmapi.o ft_strequ.o
 O_FILES +=  ft_strnequ.o ft_strsub.o ft_strjoin.o ft_strtrim.o ft_strsplit.o
 O_FILES +=  ft_itoa.o ft_putchar.o ft_putstr.o ft_putendl.o ft_putnbr.o
 O_FILES +=  ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o
-O_FILES +=  ft_strnlen.o ft_memnlen.o ft_countchar.o ft_strpchr.o
+O_FILES +=  ft_strnlen.o ft_memnlen.o ft_countchar.o ft_strpchr.o ft_count_ap.o
+O_FILES +=  ft_itoa_base.o
 
 all     :   $(NAME)
 

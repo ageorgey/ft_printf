@@ -1,36 +1,44 @@
 #include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
 
-char			*convert_diouxX(va_list ap, s_format *sf)
+s_format			*convert_deca(s_format *sf, va_list ap)
 {
-	int			nb;
+	sf->str = ft_itoa(va_arg(ap, int));
+	return (sf);
+}
 
+s_format			*convert_octa(s_format *sf, va_list ap)
+{
+	sf->str = ft_itoa_base(va_arg(ap, int), 8);
+	return (sf);
+}
+
+s_format			*convert_hexa(s_format *sf, va_list ap)
+{
+	size_t			i;
+
+	i = 0;
+	sf->str = ft_itoa_base(va_arg(ap, int), 16);
+	if (sf->type[0] == 'X')
+		while (sf->str)
+			ft_toupper(sf->str[i++]);
+	return (sf);
+}
+
+s_format			*convert_bin(s_format *sf, va_list ap)
+{
+	sf->str = ft_itoa_base(va_arg(ap, int), 2);
+	return (sf);
+}
+
+void				convert_diouxX(s_format *sf, va_list ap)
+{
 	if (sf->type[0] == 'd' || sf->type[0] == 'i' || sf->type[0] == 'u')
-	{
-		nb = va_arg(ap, int);
-		sf->str = ft_itoa(nb);
-		ft_putendl(sf->str);
-	}
-	return (sf->str);
-}
-
-void			foo(char *fmt, ...)
-{
-	s_format	*sf;
-	va_list		ap;
-
-	sf = init_struct();
-	sf->type[0] = 'd';
-	va_start(ap, fmt);
-	convert_diouxX(ap, sf);
-	va_end(ap);
-}
-
-int				main()
-{
-	char		*fmt;
-
-	fmt = "Ok";
-	foo(fmt, 42);
-	return (0);
+		convert_deca(sf, ap);
+	else if (sf->type[0] == 'o')
+		convert_octa(sf, ap);
+	else if (sf->type[0] == 'x' || sf->type[0] == 'X')
+			convert_hexa(sf, ap);
+	else if (sf->type[0] == 'b')
+		convert_bin(sf, ap);
 }
