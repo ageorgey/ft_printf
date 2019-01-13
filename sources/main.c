@@ -7,15 +7,20 @@ void			f(char *str, ...)
 	va_list		ap;
 
 	init_struct(sf);
-	sf->type = "s";
+	sf->type = "p";
 	va_start(ap, str);
 	sf = convert_csp(sf, ap);
 	ft_putendl(sf->str);
 	va_end(ap);
 }
 
+
 int				main(int ac, char **av)
 {
-	f("Bonjour", "Adam");
+	char		*str;
+
+	str = ft_strnew(1);
+	f("Bonjour", str);
+	printf("%p\n", str);
 	return (0);
 }

@@ -1,5 +1,6 @@
 #include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
+#include <stdint.h>
 
 s_format			*convert_c(s_format *sf, va_list ap)
 {
@@ -16,7 +17,7 @@ s_format			*convert_s(s_format *sf, va_list ap)
 
 s_format			*convert_p(s_format *sf, va_list ap)
 {
-	//Comment trouver l'adresse d'une variables sans printf ?
+	sf->str = ft_itoa_base(va_arg(ap, uintptr_t), 16);
 	return (sf);
 }
 
