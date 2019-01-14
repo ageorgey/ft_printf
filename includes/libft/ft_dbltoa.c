@@ -14,7 +14,6 @@ char			*ft_dbltoa(double nb)
 		j++;
 	str[j++] = '.';
 	str = ft_strjoin(str, ft_itoa(i[2]));
-	ft_putendl(str);
 	return (str);
 }
 

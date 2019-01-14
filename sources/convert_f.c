@@ -3,5 +3,9 @@
 
 s_format			*convert_f(s_format *sf, va_list ap)
 {
-	sf->str = ft
+	double			nb;
+
+	nb = va_arg(ap, double);
+	sf->str = ft_dbltoa(nb);
+	return (sf);
 }

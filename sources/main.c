@@ -6,10 +6,10 @@ void			f(char *str, ...)
 	s_format	*sf;
 	va_list		ap;
 
-	init_struct(sf);
-	sf->type = "p";
+	sf = init_struct();
+	sf->type = "f";
 	va_start(ap, str);
-	sf = convert_csp(sf, ap);
+	sf = convert_f(sf, ap);
 	ft_putendl(sf->str);
 	va_end(ap);
 }
@@ -17,10 +17,9 @@ void			f(char *str, ...)
 
 int				main(int ac, char **av)
 {
-	char		*str;
+	double		nb;
 
-	str = ft_strnew(1);
-	f("Bonjour", str);
-	printf("%p\n", str);
+	nb = 93.27;
+	f("Bonjour", nb);
 	return (0);
 }
