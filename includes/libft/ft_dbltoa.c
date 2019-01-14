@@ -3,17 +3,18 @@
 char			*ft_dbltoa(double nb)
 {
 	char		*str;
-	size_t		i;
+	size_t		*i;
+	size_t		j;
 
-	str = ft_strnew(ft_dbllen(nb));
-	i = 0;
+	j = 0;
+	i = ft_dbllen(nb);
+	str = ft_strnew(i[0]);
+	str = ft_itoa(i[1]);
+	while (str[j])
+		j++;
+	str[j++] = '.';
+	str = ft_strjoin(str, ft_itoa(i[2]));
+	ft_putendl(str);
 	return (str);
 }
 
-int			main()
-{
-	double	nb;
-
-	nb = -93.27;
-	ft_putnbr(ft_dbllen(nb));
-}

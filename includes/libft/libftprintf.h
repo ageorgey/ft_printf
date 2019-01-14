@@ -85,7 +85,8 @@ int					ft_iswidth(char *str);
 int					ft_issize(int c);
 int					ft_istype(int c);
 size_t				ft_count_ap(char *format);
-size_t				ft_dbllen(double nb);
+size_t				*ft_dbllen(double nb);
 char				*ft_dbltoa(double nb);
+size_t				ft_power(size_t nbr, size_t power);
 
 #endif
