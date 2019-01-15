@@ -5,19 +5,20 @@
 s_format			*convert_c(s_format *sf, va_list ap)
 {
 	sf->str = ft_strnew(1);
-	sf->str[0] = va_arg(ap, int);
+	sf->str[0] = (char)va_arg(ap, int);
 	return (sf);
 }
 
 s_format			*convert_s(s_format *sf, va_list ap)
 {
-	sf->str = ft_strdup(va_arg(ap, char *));
+	sf->str = ft_strdup(va_arg(ap, char*));
 	return (sf);
 }
 
 s_format			*convert_p(s_format *sf, va_list ap)
 {
-	sf->str = ft_itoa_base(va_arg(ap, uintptr_t), 16);
+	sf->str = ft_itoa_base((size_t)va_arg(ap, void*), 16);
+	sf->str = ft_strjoin("0x", sf->str);
 	return (sf);
 }
 

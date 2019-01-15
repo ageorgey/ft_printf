@@ -12,11 +12,11 @@
 
 #include "libftprintf.h"
 
-int	ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
-	int i;
-	int a;
-	int neg;
+	int			i;
+	int			a;
+	int			neg;
 
 	i = 0;
 	a = 0;
@@ -27,16 +27,16 @@ int	ft_atoi(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			neg = -1;
+			neg = 1;
 		i++;
 	}
 	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
 		if (str[i] >= '0')
-			a = a * 10 + (str[i] - '0');
+			a *= 10 + (str[i] - '0');
 		i++;
 	}
-	if (neg == -1)
+	if (neg)
 		return (-a);
 	return (a);
 }

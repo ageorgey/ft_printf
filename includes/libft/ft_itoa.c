@@ -19,7 +19,7 @@ char			*ft_itoa(int nbr)
 
 	i = ft_intlen(nbr, 10);
 	str = ft_strnew(i);
-	if (nbr < -2147483648 || nbr > 2147483647)
+	if (nbr < INT_MIN || nbr > INT_MAX)
 		return ("Nombre non géré !\n");
 	if (nbr == 0)
 		str[i--] = '0';

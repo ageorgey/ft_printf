@@ -26,8 +26,10 @@ C_FILES +=  ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c ft_dbllen.c
 C_FILES +=  ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c
 C_FILES +=  ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c
 C_FILES +=  ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c
-C_FILES +=  ft_putnbr_fd.c ft_strlcat.c ft_strnlen.c ft_memnlen.c
-C_FILES +=  ft_countchar.c ft_strpchr.c ft_struntil.c ft_dbltoa.c
+C_FILES +=  ft_putnbr_fd.c ft_strlcat.c ft_strnlen.c ft_memnlen.c ft_longlen.c
+C_FILES +=  ft_countchar.c ft_strpchr.c ft_struntil.c ft_dbltoa.c ft_llonglen.c
+C_FILES +=  ft_longtoa.c ft_longtoa_base.c ft_llongtoa.c ft_llongtoa_base.c
+C_FILES +=  ft_ldbllen.c ft_ldbltoa.c
 
 O_FILES =   ft_memset.o ft_bzero.o ft_memccpy.o ft_memchr.o ft_struntil.o
 O_FILES +=  ft_memcmp.o ft_memcpy.o ft_memmove.o ft_strlen.o ft_istype.o
@@ -42,7 +44,9 @@ O_FILES +=  ft_strnequ.o ft_strsub.o ft_strjoin.o ft_strtrim.o ft_strsplit.o
 O_FILES +=  ft_itoa.o ft_putchar.o ft_putstr.o ft_putendl.o ft_putnbr.o
 O_FILES +=  ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o
 O_FILES +=  ft_strnlen.o ft_memnlen.o ft_countchar.o ft_strpchr.o ft_count_ap.o
-O_FILES +=  ft_itoa_base.o ft_power.o ft_dbllen.o ft_dbltoa.o
+O_FILES +=  ft_itoa_base.o ft_power.o ft_dbllen.o ft_dbltoa.o ft_longlen.o
+O_FILES +=  ft_llonglen.o ft_longtoa.o ft_longtoa_base.o ft_llongtoa.o
+O_FILES +=  ft_llongtoa_base.o ft_ldbllen.o ft_ldbltoa.o
 
 all     :   $(NAME)
 
