@@ -66,15 +66,24 @@ char			*parse_precision(char *format, s_format *sf)
 	size_t		i;
 
 	i = 0;
-	if (format[i] && format[i] != '.')
-		return (format);
-	++i;
-	if (format[i] && ft_isdigit(format[i]))
+	if (format[i] == '.')
 	{
-		sf->precision = ft_strnew(1);
-		sf->precision[0] = format[i];
+		++i;
+		if (format[i] && ft_isdigit(format[i]))
+		{
+			sf->precision = ft_strnew(1);
+			sf->precision[0] = format[i];
+			return (&format[++i]);
+		}
+		else if (ft_issize(format[i]) || ft_istype(format[i]))
+		{
+			sf->precision = ft_strnew(0);
+			return (format);
+		}
 	}
-	return (&format[++i]);
+	else if (!format[i] || format[i] != '.')
+		sf->precision = ft_strnew(0);
+	return (format);
 }
 
 char			*parse_size(char *format, s_format *sf)

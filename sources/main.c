@@ -22,10 +22,11 @@ int				main(int ac, char **av)
 	char		*str;
 
 	str ="Adam le dév";
-	nb = 9;
+	nb = 9327;
 	dbl = 42.;
-	f();
-	//printf("%#12.5lf\n", dbl);
+	//f();
+	printf("'010'  : |%010i|\n", nb);
+	printf("' 10'  : |% 10i|\n", nb);
 	//ft_putendl(ft_dbltoa(dbl, 6));
 	return (0);
 }
