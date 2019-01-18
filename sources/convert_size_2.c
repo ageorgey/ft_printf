@@ -8,4 +8,4 @@ s_format			*size_for_f(s_format *sf, va_list ap)
 	else if (ft_strequ("L", sf->size))
 		sf->str = ft_ldbltoa(va_arg(ap, long double));
 	return (sf);
-}
+ }

@@ -6,6 +6,9 @@ s_format			*convert_f(s_format *sf, va_list ap)
 	double			nb;
 
 	nb = va_arg(ap, double);
-	sf->str = ft_dbltoa(nb);
+	if (ft_strequ(sf->size, "l"))
+		sf->str = ft_dbltoa(nb, (size_t)ft_atoi(sf->precision));
+	else if (ft_strequ(sf->size, "L"))
+		sf->str = ft_ldbltoa(nb, (size_t)ft_atoi(sf->precision));
 	return (sf);
 }

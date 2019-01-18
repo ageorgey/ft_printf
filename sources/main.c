@@ -2,28 +2,30 @@
 #include "../includes/ft_printf.h"
 #include <stdio.h>
 
-/*void			f(char *str, ...)
+void			f()
 {
 	s_format	*sf;
-	va_list		ap;
+	//va_list		ap;
 
 	sf = init_struct();
-	sf->type = "f";
-	va_start(ap, str);
-	sf = convert_f(sf, ap);
-	ft_putendl(sf->str);
-	va_end(ap);
-}*/
+	//va_start(ap, str);
+	sf = parse_format("%f", sf);
+	ft_putendl(sf->precision);
+	//va_end(ap);
+}
 
 
 int				main(int ac, char **av)
 {
-	long long		nb;
-	int		c;
+	int		nb;
+	double		dbl;
+	char		*str;
 
-	nb = 42000;
-	c = 42000;
-	//f("Bonjour", nb);
-	printf("llX = %llX\nd = %X\n", nb, c);
+	str ="Adam le dév";
+	nb = 9;
+	dbl = 42.;
+	f();
+	//printf("%#12.5lf\n", dbl);
+	//ft_putendl(ft_dbltoa(dbl, 6));
 	return (0);
 }

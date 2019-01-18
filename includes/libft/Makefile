@@ -29,7 +29,7 @@ C_FILES +=  ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c
 C_FILES +=  ft_putnbr_fd.c ft_strlcat.c ft_strnlen.c ft_memnlen.c ft_longlen.c
 C_FILES +=  ft_countchar.c ft_strpchr.c ft_struntil.c ft_dbltoa.c ft_llonglen.c
 C_FILES +=  ft_longtoa.c ft_longtoa_base.c ft_llongtoa.c ft_llongtoa_base.c
-C_FILES +=  ft_ldbllen.c ft_ldbltoa.c
+C_FILES +=  ft_ldbllen.c ft_ldbltoa.c ft_fillzero.c
 
 O_FILES =   ft_memset.o ft_bzero.o ft_memccpy.o ft_memchr.o ft_struntil.o
 O_FILES +=  ft_memcmp.o ft_memcpy.o ft_memmove.o ft_strlen.o ft_istype.o
@@ -46,7 +46,7 @@ O_FILES +=  ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o
 O_FILES +=  ft_strnlen.o ft_memnlen.o ft_countchar.o ft_strpchr.o ft_count_ap.o
 O_FILES +=  ft_itoa_base.o ft_power.o ft_dbllen.o ft_dbltoa.o ft_longlen.o
 O_FILES +=  ft_llonglen.o ft_longtoa.o ft_longtoa_base.o ft_llongtoa.o
-O_FILES +=  ft_llongtoa_base.o ft_ldbllen.o ft_ldbltoa.o
+O_FILES +=  ft_llongtoa_base.o ft_ldbllen.o ft_ldbltoa.o ft_fillzero.o
 
 all     :   $(NAME)
 

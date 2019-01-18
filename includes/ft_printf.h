@@ -37,5 +37,8 @@ s_format			*convert_diouxXb(s_format *sf, va_list ap);
 s_format			*convert_csp(s_format *sf, va_list ap);
 s_format			*convert_f(s_format *sf, va_list ap);
 void				free_struct(s_format *sf);
+s_format			*precision_for_diouxXb(s_format *sf);
+s_format			*precision_for_f(s_format *sf);
+s_format			*precision_for_s(s_format *sf);
 
 #endif

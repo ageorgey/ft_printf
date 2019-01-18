@@ -4,7 +4,7 @@ int				ft_istype(int c)
 {
 	char		*type;
 
-	type = "diouxXbcsp";
+	type = "diouxXbcspf";
 	while (*type)
 	{
 		if (*type == c)

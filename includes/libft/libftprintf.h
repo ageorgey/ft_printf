@@ -85,10 +85,10 @@ int					ft_iswidth(char *str);
 int					ft_issize(int c);
 int					ft_istype(int c);
 size_t				ft_count_ap(char *format);
-size_t				*ft_dbllen(double nb);
-char				*ft_dbltoa(double nb);
-size_t				*ft_ldbllen(long double nb);
-char				*ft_ldbltoa(long double nb);
+size_t				*ft_dbllen(double nb, size_t p);
+char				*ft_dbltoa(double nb, size_t p);
+size_t				*ft_ldbllen(long double nb, size_t p);
+char				*ft_ldbltoa(long double nb, size_t p);
 size_t				ft_power(size_t nbr, size_t power);
 char				*ft_longtoa(long n);
 char				*ft_llongtoa(long long n);
@@ -96,5 +96,6 @@ char				*ft_longtoa_base(long nbr, size_t base);
 char				*ft_llongtoa_base(long long nbr, size_t base);
 size_t				ft_longlen(long nbr, size_t base);
 size_t				ft_llonglen(long long nbr, size_t base);
+char				*ft_fillzero(size_t p);
 
 #endif

@@ -46,14 +46,14 @@ char			*parse_width(char *format, s_format *sf)
 		sf->width = ft_strnew(0);
 		return (format);
 	}
-	while (format[i] && format[i] != '.' && !ft_issize(format[i]) \
-	&& !ft_istype(format[i]))
+	while (format[i] && format[i] != '.' && !ft_issize(format[i])
+		&& !ft_istype(format[i]))
 		i++;
 	sf->width = ft_strnew(i);
 	ft_strclr(sf->width);
 	i = 0;
-	while (format[i] && format[i] != '.' && !ft_issize(format[i]) \
-	&& !ft_istype(format[i]))
+	while (format[i] && format[i] != '.' && !ft_issize(format[i])
+		&& !ft_istype(format[i]))
 	{
 		sf->width[i] = format[i];
 		i++;
@@ -67,19 +67,14 @@ char			*parse_precision(char *format, s_format *sf)
 
 	i = 0;
 	if (format[i] && format[i] != '.')
-	{
-		sf->precision = ft_strnew(0);
 		return (format);
-	}
-	else if (format[i] && format[i] == '.')
+	++i;
+	if (format[i] && ft_isdigit(format[i]))
 	{
-		i++;
 		sf->precision = ft_strnew(1);
-		ft_strclr(sf->precision);
 		sf->precision[0] = format[i];
-		return (&format[++i]);
 	}
-	return (format);
+	return (&format[++i]);
 }
 
 char			*parse_size(char *format, s_format *sf)
