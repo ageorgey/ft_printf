@@ -44,17 +44,20 @@ s_format			*flag_sharp_for_f(s_format *sf)
 s_format			*flag_zero(s_format *sf)
 {
 	char			*str;
+	int				i;
 
-	if (ft_strchr(sf->flags, '-') || ((sf->precision)
-		&& (ft_strequ(sf->type, "d") || ft_strequ(sf->type, "i")
-		|| ft_strequ(sf->type, "o") || ft_strequ(sf->type, "u")
-		|| ft_strequ(sf->type, "x") || ft_strequ(sf->type, "X"))))
+	i = ft_atoi(sf->width) - ft_strlen(sf->str);
+	if (i <= 0)
 		return (sf);
-	else if (ft_strequ(sf->type, "d") || ft_strequ(sf->type, "i")
-		|| ft_strequ(sf->type, "o") || ft_strequ(sf->type, "u")
-		|| ft_strequ(sf->type, "x") || ft_strequ(sf->type, "X"))
+	if (ft_strchr(sf->flags, '-') || (sf->precision && (sf->type[0] == 'd'
+	|| sf->type[0] == 'i' || sf->type[0] == 'o' || sf->type[0] ==  'u'
+	|| sf->type[0] ==  'x' || sf->type[0] ==  'X')))
+		return (sf);
+	else if (sf->type[0] == 'd' || sf->type[0] == 'i' || sf->type[0] ==  'o'
+	|| sf->type[0] == 'u' || sf->type[0] == 'x' || sf->type[0] == 'X'
+	|| sf->type[0] == 'b')
 		{
-			str = ft_fillzero(ft_atoi(sf->width) - ft_strlen(sf->str));
+			str = ft_fillzero(i);
 			ft_strjoin(str, sf->str);
 		}
 	return (sf);
@@ -80,8 +83,7 @@ s_format			*flag_positive(s_format *sf)
 {
 	char			*str;
 
-	if (ft_strequ(sf->type, "d") || ft_strequ(sf->type, "i")
-		|| ft_strequ(sf->type, "f"))
+	if (sf->type[0] == 'd' || sf->type[0] == 'i' || sf->type[0] == 'f')
 	{
 		str = ft_strnew(1);
 		str[0] = '+';
