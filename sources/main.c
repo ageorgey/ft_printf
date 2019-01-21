@@ -25,8 +25,9 @@ int				main(int ac, char **av)
 	nb = 9327;
 	dbl = 42.;
 	//f();
-	printf("'010'  : |%010i|\n", nb);
-	printf("' 10'  : |% 10i|\n", nb);
+	//printf("'010'  : |%010i|\n", nb);
+	//printf("' 10'  : |% 10i|\n", nb);
 	//ft_putendl(ft_dbltoa(dbl, 6));
+	ft_printf("string %% ", str);
 	return (0);
 }

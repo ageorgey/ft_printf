@@ -1,6 +1,5 @@
 #include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
-#include <stdint.h>
 
 s_format			*convert_c(s_format *sf, va_list ap)
 {
@@ -17,8 +16,12 @@ s_format			*convert_s(s_format *sf, va_list ap)
 
 s_format			*convert_p(s_format *sf, va_list ap)
 {
+	char			*str;
+
+	str = ft_strnew(2);
+	str = "0x";
 	sf->str = ft_itoa_base((size_t)va_arg(ap, void*), 16);
-	sf->str = ft_strjoin("0x", sf->str);
+	sf->str = ft_strjoin(str, sf->str);
 	return (sf);
 }
 

@@ -78,7 +78,7 @@ char			*parse_precision(char *format, s_format *sf)
 		else if (ft_issize(format[i]) || ft_istype(format[i]))
 		{
 			sf->precision = ft_strnew(0);
-			return (format);
+			return (&format[i]);
 		}
 	}
 	else if (!format[i] || format[i] != '.')

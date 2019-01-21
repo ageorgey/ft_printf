@@ -52,10 +52,11 @@ s_format			*parse_format(char *format, s_format *sf)
 		if (!*format)
 		{
 			ft_putendl_fd("Aucun caractère après '%'", 2);
-			EXIT_FAILURE;
+			return (sf);
 		}
 		else if (*format ==  '%')
 		{
+			sf->str = ft_strnew(1);
 			sf->str[0] = *format;
 			return (sf);
 		}

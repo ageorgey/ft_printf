@@ -12,9 +12,9 @@ s_format			*width_for_all(s_format *sf)
 	if (ft_atoi(sf->width) <= ft_strlen(sf->str))
 		return (sf);
 	else if (ft_strchr(sf->flags, '0'))
-		flag_for_zero(sf);
+		flag_zero(sf);
 	else if (ft_strchr(sf->flags, '-'))
-		flag_for_negative(sf);
+		flag_negative(sf);
 	else
 	{
 		while (i[1] < i[0])
