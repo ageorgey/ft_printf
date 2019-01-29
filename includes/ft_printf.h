@@ -40,8 +40,8 @@ void				free_struct(s_format *sf);
 s_format			*precision_for_diouxXb(s_format *sf);
 s_format			*precision_for_f(s_format *sf);
 s_format			*precision_for_s(s_format *sf);
-s_format			*flag_for_oxX(s_format *sf);
-s_format			*flag_for_f(s_format *sf);
+s_format			*flag_sharp_for_oxX(s_format *sf);
+s_format			*flag_sharp_for_f(s_format *sf);
 s_format			*flag_negative(s_format *sf);
 s_format			*flag_positive(s_format *sf);
 s_format			*flag_zero(s_format *sf);
@@ -52,5 +52,6 @@ s_format			*size_for_xX(s_format *sf, va_list ap);
 s_format			*size_for_b(s_format *sf, va_list ap);
 s_format			*size_for_f(s_format *sf, va_list ap);
 s_format			*width_for_all(s_format *sf);
+s_format			*gestion_all(s_format *sf, va_list ap);
 
 #endif

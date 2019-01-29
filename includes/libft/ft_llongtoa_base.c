@@ -20,7 +20,7 @@ char			*base_supp(char *str, long long nbr, size_t base, size_t i)
 	return (str);
 }
 
-char			*ft_lltoa_base(long long nbr, size_t base)
+char			*ft_llongtoa_base(long long nbr, size_t base)
 {
 	char		*str;
 	size_t		i;

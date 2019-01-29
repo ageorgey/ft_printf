@@ -6,17 +6,18 @@ int					ft_printf(const char *format, ...)
 	va_list			ap;
 	s_format		*sf;
 	char			*fmt;
+	size_t			i;
 
+	i = 0;
 	va_start(ap, format);
 	fmt = (char*)format;
-	while (*fmt)
-	{
-		sf = init_struct();
-		ft_struntil(fmt, '%');
-		sf = parse_format(fmt, sf);
-		ft_putendl(sf->str);
-		fmt = next_format(fmt);
-	}
+	sf = init_struct();
+	//ft_struntil(fmt, '%');
+	parse_format(fmt, sf);
+	ft_putendl("ok");
+	gestion_all(sf, ap);
+	//fmt = next_format(fmt);
+	ft_putendl(sf->str);
 	va_end(ap);
 	return (1);
 }

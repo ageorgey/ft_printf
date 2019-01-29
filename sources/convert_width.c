@@ -6,10 +6,11 @@ s_format			*width_for_all(s_format *sf)
 	size_t			*i;
 	char			*str;
 
-	i[0] = ft_atoi(sf->width) - ft_strlen(sf->str);
+	i = NULL;
+	i[0] = ft_atoi(sf->width) - (int)ft_strlen(sf->str);
 	i[1] = 0;
 	str = ft_strnew(i[0]);
-	if (ft_atoi(sf->width) <= ft_strlen(sf->str))
+	if (ft_atoi(sf->width) <= (int)ft_strlen(sf->str))
 		return (sf);
 	else if (ft_strchr(sf->flags, '0'))
 		flag_zero(sf);

@@ -68,6 +68,7 @@ s_format			*flag_negative(s_format *sf)
 	char			*str;
 	int				*i;
 
+	i = NULL;
 	i[0] = 0;
 	i[1] = ft_atoi(sf->width) - ft_strlen(sf->str);
 	if (i[1] <= 0)
