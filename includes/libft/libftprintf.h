@@ -99,5 +99,6 @@ size_t				ft_llonglen(long long nbr, size_t base);
 char				*ft_fillzero(size_t p);
 char				*ft_filltenth(size_t t, size_t p);
 char				*ft_base_supp(char *str, int nbr, size_t base, size_t i);
+char				*ft_strupper(char *str);
 
 #endif

@@ -3,6 +3,9 @@
 
 s_format			*convert_f(s_format *sf, va_list ap)
 {
-	sf->str = ft_dbltoa(va_arg(ap, double), ft_atoi(sf->precision));
+	if (!ft_isdigit(sf->precision[0]))
+		sf->str = ft_dbltoa(va_arg(ap, double), 0);
+	else
+		sf->str = ft_dbltoa(va_arg(ap, double), ft_atoi(sf->precision));
 	return (sf);
 }

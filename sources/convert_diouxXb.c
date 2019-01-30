@@ -20,8 +20,7 @@ s_format			*convert_hexa(s_format *sf, va_list ap)
 	i = 0;
 	sf->str = ft_itoa_base(va_arg(ap, int), 16);
 	if (sf->type[0] == 'X')
-		while (sf->str[i++])
-			sf->str[i] = ft_toupper(sf->str[i]);
+		sf->str = ft_strupper(sf->str);
 	return (sf);
 }
 

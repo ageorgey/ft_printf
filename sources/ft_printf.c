@@ -14,7 +14,6 @@ int					ft_printf(const char *format, ...)
 	sf = init_struct();
 	//ft_struntil(fmt, '%');
 	parse_format(fmt, sf);
-	ft_putendl("ok");
 	gestion_all(sf, ap);
 	//fmt = next_format(fmt);
 	ft_putendl(sf->str);

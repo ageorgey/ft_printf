@@ -6,6 +6,8 @@ s_format			*width_for_all(s_format *sf)
 	size_t			*i;
 	char			*str;
 
+	if (!ft_isdigit(ft_atoi(sf->width)))
+		return (sf);
 	i = NULL;
 	i[0] = ft_atoi(sf->width) - (int)ft_strlen(sf->str);
 	i[1] = 0;

@@ -1,5 +1,6 @@
 #include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
+#include <stdio.h>
 
 s_format			*convert_c(s_format *sf, va_list ap)
 {
