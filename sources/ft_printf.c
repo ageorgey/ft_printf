@@ -12,10 +12,10 @@ int					ft_printf(const char *format, ...)
 	va_start(ap, format);
 	fmt = (char*)format;
 	sf = init_struct();
-	//ft_struntil(fmt, '%');
+	ft_struntil(fmt, '%');
 	parse_format(fmt, sf);
 	gestion_all(sf, ap);
-	//fmt = next_format(fmt);
+	fmt = next_format(fmt);
 	ft_putendl(sf->str);
 	va_end(ap);
 	return (1);

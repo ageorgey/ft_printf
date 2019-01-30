@@ -44,12 +44,18 @@ s_format			*gestion_precision(s_format *sf)
 
 s_format			*gestion_flags_width(s_format *sf)
 {
-	if (sf->type[0] == 'o' || sf->type[0] == 'x' || sf->type[0] == 'X')
-		flag_sharp_for_oxX(sf);
-	else if (sf->type[0] == 'f')
-		flag_sharp_for_f(sf);
-	else if (sf->type[0] == 'd' || sf->type[0] == 'i' || sf->type[0] == 'f')
-		flag_positive(sf);
+	if (ft_strchr(sf->flags, '#'))
+	{
+		if (sf->type[0] == 'o' || sf->type[0] == 'x' || sf->type[0] == 'X')
+			flag_sharp_for_oxX(sf);
+		else if (sf->type[0] == 'f')
+			flag_sharp_for_f(sf);
+	}
+	if (ft_strchr(sf->flags, '+'))
+	{
+		if (sf->type[0] == 'd' || sf->type[0] == 'i' || sf->type[0] == 'f')
+			flag_positive(sf);
+	}
 	width_for_all(sf);
 	return (sf);
 }
@@ -58,11 +64,11 @@ s_format			*gestion_all(s_format *sf, va_list ap)
 {
 	if (!ft_issize(sf->size[0]))
 		gestion_type(sf, ap);
-	else if (ft_issize(sf->size[0]))
+	if (ft_issize(sf->size[0]))
 		gestion_size(sf, ap);
-	else if (ft_isdigit(ft_atoi(sf->precision)))
+	if (ft_atoi(sf->precision) > 0)
 		gestion_precision(sf);
-	else if (sf->flags)
+	if (ft_isflags(sf->flags[0]) || ft_atoi(sf->width) > 0)
 		gestion_flags_width(sf);
 	return (sf);
 }

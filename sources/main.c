@@ -5,11 +5,11 @@
 int					main()
 {
 	char		*str;
-	double		age;
+	int			age;
 
-	str = "0xadam";
+	str = "Adam";
 	age = 28;
-	ft_printf("Bonjour %f", age);
-	//ft_putendl(ft_strupper(str));
+	printf("printf : %12s\n", str);
+	ft_printf("ft_printf : %12s", str);
 	return (0);
 }

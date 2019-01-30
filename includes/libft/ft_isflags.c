@@ -3,13 +3,15 @@
 int				ft_isflags(int c)
 {
 	char		*flags;
+	size_t		i;
 
-	flags = "#0 +-";
-	while (*flags)
+	flags = ft_strdup("#0 +-");
+	i = 0;
+	while (flags[i])
 	{
-		if (*flags == c)
+		if (flags[i] == c)
 			return (1);
-		flags++;
+		i++;
 	}
 	return (0);
 }
