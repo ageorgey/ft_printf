@@ -53,9 +53,8 @@ s_format			*size_for_xX(s_format *sf, va_list ap)
 		sf->str = ft_longtoa_base(va_arg(ap, unsigned long), 16);
 	else if (ft_strequ("ll", sf->size))
 		sf->str = ft_llongtoa_base(va_arg(ap, unsigned long long), 16);
-	else if (sf->type[0] == 'X')
-		while (sf->str)
-			ft_toupper(sf->str[i++]);
+	if (sf->type[0] == 'X')
+		sf->str = ft_strupper(sf->str);
 	return (sf);
 }
 

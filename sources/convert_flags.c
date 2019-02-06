@@ -58,7 +58,7 @@ s_format			*flag_zero(s_format *sf)
 	|| sf->type[0] == 'b')
 		{
 			str = ft_fillzero(i);
-			ft_strjoin(str, sf->str);
+			sf->str = ft_strjoin(str, sf->str);
 		}
 	return (sf);
 }

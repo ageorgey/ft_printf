@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 # include "libft/libftprintf.h"
 # include <stdarg.h>
+# include <wchar.h>
 
 int					ft_printf(const char *format, ...);
 typedef struct		s_format
@@ -51,6 +52,8 @@ s_format			*size_for_u(s_format *sf, va_list ap);
 s_format			*size_for_xX(s_format *sf, va_list ap);
 s_format			*size_for_b(s_format *sf, va_list ap);
 s_format			*size_for_f(s_format *sf, va_list ap);
+s_format			*size_for_c(s_format *sf, va_list ap);
+s_format			*size_for_s(s_format *sf, va_list ap);
 s_format			*width_for_all(s_format *sf);
 s_format			*gestion_all(s_format *sf, va_list ap);
 

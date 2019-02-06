@@ -6,8 +6,8 @@ s_format			*gestion_type(s_format *sf, va_list ap)
 	if (sf->type[0] == 'c' || sf->type[0] == 's' || sf->type[0] == 'p')
 		convert_csp(sf, ap);
 	else if (sf->type[0] == 'd' || sf->type[0] == 'i' || sf->type[0] == 'o'
-		|| sf->type[0] == 'u' || sf->type[0] == 'x' || sf->type[0] == 'X'
-		|| sf->type[0] == 'b')
+	|| sf->type[0] == 'u' || sf->type[0] == 'x' || sf->type[0] == 'X'
+	|| sf->type[0] == 'b')
 		convert_diouxXb(sf, ap);
 	else if (sf->type[0] == 'f')
 		convert_f(sf, ap);
@@ -28,6 +28,10 @@ s_format			*gestion_size(s_format *sf, va_list ap)
 		size_for_b(sf, ap);
 	else if (sf->type[0] == 'f')
 		size_for_f(sf, ap);
+	else if (sf->type[0] == 'c')
+		size_for_c(sf, ap);
+	else if (sf->type[0] == 's')
+		size_for_s(sf, ap);
 	return (sf);
 }
 
@@ -37,6 +41,8 @@ s_format			*gestion_precision(s_format *sf)
 		precision_for_s(sf);
 	else if (sf->type[0] == 'f')
 		precision_for_f(sf);
+	else if (sf->type[0] == 'c' || sf->type[0] == 'p')
+		return (sf);
 	else
 		precision_for_diouxXb(sf);
 	return (sf);
@@ -62,11 +68,13 @@ s_format			*gestion_flags_width(s_format *sf)
 
 s_format			*gestion_all(s_format *sf, va_list ap)
 {
+	if (sf->type[0] == 'f')
+		gestion_precision(sf);
 	if (!ft_issize(sf->size[0]))
 		gestion_type(sf, ap);
 	if (ft_issize(sf->size[0]))
 		gestion_size(sf, ap);
-	if (ft_atoi(sf->precision) > 0)
+	if (ft_atoi(sf->precision) > 0 && sf->type[0] != 'f')
 		gestion_precision(sf);
 	if (ft_isflags(sf->flags[0]) || ft_atoi(sf->width) > 0)
 		gestion_flags_width(sf);

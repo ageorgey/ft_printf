@@ -17,7 +17,7 @@ size_t			*ft_lententh(double nb, size_t p)
 	while (p--)
 	{
 		nb *= 10;
-		n = (float)nb;
+		n = nb;
 		++i[0];
 	}
 	i[1] = n - (n2 * ft_power(10, i[0]));

@@ -30,6 +30,6 @@ s_format			*precision_for_s(s_format *sf)
 	char			*str;
 
 	str = ft_strnew(ft_atoi(sf->precision));
-	sf->str = ft_strncpy(sf->str, str, ft_atoi(sf->precision));
+	sf->str = ft_strncpy(str, sf->str, ft_atoi(sf->precision));
 	return (sf);
 }

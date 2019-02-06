@@ -4,12 +4,14 @@
 
 int					main()
 {
-	char		*str;
-	int			age;
+	char		*s;
+	int			diouxXb;
+	double		f;
 
-	str = "Adam";
-	age = 28;
-	printf("printf : %12s\n", str);
-	ft_printf("ft_printf : %12s", str);
+	s = "Adam";
+	diouxXb = 93270;
+	f = 93.270;
+	printf("printf : %# 12x <--- l'original\n", diouxXb);
+	ft_printf("ft_printf : %# 12x <--- le mien\n", diouxXb);
 	return (0);
 }
