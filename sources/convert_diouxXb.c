@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   convert_diouxXb.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ageorgey <ageorgey@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/02/15 13:49:02 by ageorgey          #+#    #+#             */
+/*   Updated: 2019/02/15 13:49:31 by ageorgey         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
 
@@ -15,9 +27,6 @@ s_format			*convert_octa(s_format *sf, va_list ap)
 
 s_format			*convert_hexa(s_format *sf, va_list ap)
 {
-	size_t			i;
-
-	i = 0;
 	sf->str = ft_itoa_base(va_arg(ap, int), 16);
 	if (sf->type[0] == 'X')
 		sf->str = ft_strupper(sf->str);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   convert_size_2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ageorgey <ageorgey@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/02/15 14:17:05 by ageorgey          #+#    #+#             */
+/*   Updated: 2019/02/15 14:17:44 by ageorgey         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
 
@@ -9,6 +21,8 @@ s_format			*size_for_f(s_format *sf, va_list ap)
 		sf->str = ft_ldbltoa(va_arg(ap, long double), ft_atoi(sf->precision));
 	return (sf);
  }
+
+/*----------------------------------À REVOIR----------------------------------*/
 
 s_format			*size_for_c(s_format *sf, va_list ap)
 {
@@ -24,3 +38,5 @@ s_format			*size_for_s(s_format *sf, va_list ap)
 		sf->str = va_arg(ap, char*);
 	return (sf);
 }
+
+/*----------------------------------------------------------------------------*/

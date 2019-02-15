@@ -79,7 +79,7 @@ size_t				ft_intlen(int nbr, size_t base);
 size_t				ft_memnlen(void *s, char c);
 size_t				ft_countchar(const char *str, int c);
 char				*ft_strpchr(const char *s, int c);
-void				ft_struntil(const char *str, int c);
+char				*ft_struntil(const char *str, int c);
 int					ft_isflags(int c);
 int					ft_iswidth(char *str);
 int					ft_issize(int c);

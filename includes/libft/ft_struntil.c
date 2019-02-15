@@ -1,12 +1,18 @@
 #include "libftprintf.h"
 
-void			ft_struntil(const char *str, int c)
+char			*ft_struntil(const char *str, int c)
 {
+	char		*s;
+	size_t		i;
+
+	i = 0;
+	s = ft_strnew(ft_strnlen((char*)str, c));
 	if (!str)
-		return ;
-	if (*str != c)
+		return (NULL);
+	while (str[i] && str[i] != c)
 	{
-		ft_putchar(*str);
-		ft_struntil(str + 1, c);
+		s[i] = str[i];
+		i++;
 	}
+	return (s);
 }

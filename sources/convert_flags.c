@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   convert_flags.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ageorgey <ageorgey@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/02/15 14:16:01 by ageorgey          #+#    #+#             */
+/*   Updated: 2019/02/15 14:16:08 by ageorgey         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/libft/libftprintf.h"
 #include "../includes/ft_printf.h"
 
@@ -29,9 +41,7 @@ s_format			*flag_sharp_for_oxX(s_format *sf)
 s_format			*flag_sharp_for_f(s_format *sf)
 {
 	char			*str;
-	size_t			i;
 
-	i = 0;
 	if (!ft_strchr(sf->str, '.'))
 	{
 		str = ft_strnew(1);
@@ -66,9 +76,8 @@ s_format			*flag_zero(s_format *sf)
 s_format			*flag_negative(s_format *sf)
 {
 	char			*str;
-	int				*i;
+	int				i[2];
 
-	i = NULL;
 	i[0] = 0;
 	i[1] = ft_atoi(sf->width) - ft_strlen(sf->str);
 	if (i[1] <= 0)
