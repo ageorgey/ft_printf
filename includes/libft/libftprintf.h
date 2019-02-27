@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf                                        :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ageorgey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 14:43:54 by ageorgey          #+#    #+#             */
-/*   Updated: 2018/12/03 19:13:00 by ageorgey         ###   ########.fr       */
+/*   Updated: 2019/02/26 23:09:20 by ageorgey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,10 @@ char				*ft_llongtoa_base(long long nbr, size_t base);
 size_t				ft_longlen(long nbr, size_t base);
 size_t				ft_llonglen(long long nbr, size_t base);
 char				*ft_fillzero(size_t p);
+char				*ft_fillone(size_t p);
 char				*ft_filltenth(size_t t, size_t p);
 char				*ft_base_supp(char *str, int nbr, size_t base, size_t i);
 char				*ft_strupper(char *str);
+long long           ft_atoll_base_bin(const char *str);
 
 #endif

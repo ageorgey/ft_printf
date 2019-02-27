@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_dbllen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ageorgey <ageorgey@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/02/26 15:43:20 by ageorgey          #+#    #+#             */
+/*   Updated: 2019/02/26 15:43:35 by ageorgey         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 
 
 size_t			*ft_lententh(double nb, size_t p)
 {
 	size_t		*i;
-	long			n;
-	long			n2;
+	long		n;
+	long		n2;
 
 	if(!(i = (size_t*)malloc(sizeof(size_t) * 3)))
 		return (NULL);

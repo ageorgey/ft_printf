@@ -6,7 +6,7 @@
 #    By: ageorgey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/17 14:15:27 by ageorgey          #+#    #+#              #
-#    Updated: 2018/11/25 15:16:19 by ageorgey         ###   ########.fr        #
+#    Updated: 2019/02/26 23:08:48 by ageorgey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ C_LIB += ft_putnbr_fd.c ft_strlcat.c ft_strnlen.c ft_memnlen.c ft_longlen.c
 C_LIB += ft_countchar.c ft_strpchr.c ft_struntil.c ft_dbltoa.c ft_llonglen.c
 C_LIB += ft_longtoa.c ft_longtoa_base.c ft_llongtoa.c ft_llongtoa_base.c
 C_LIB += ft_ldbllen.c ft_ldbltoa.c ft_fillzero.c ft_base_supp.c ft_filltenth.c
-C_LIB += ft_strupper.c
+C_LIB += ft_strupper.c ft_fillone.c ft_atoll_base_bin.c
 
 C_SRC =  $(DIR)convert_csp.c $(DIR)convert_diouxXb.c $(DIR)convert_f.c 
 C_SRC += $(DIR)convert_flags.c $(DIR)convert_width.c $(DIR)parse_struct.c
@@ -55,7 +55,7 @@ O_LIB += ft_strnlen.o ft_memnlen.o ft_countchar.o ft_strpchr.o ft_count_ap.o
 O_LIB += ft_itoa_base.o ft_power.o ft_dbllen.o ft_dbltoa.o ft_longlen.o
 O_LIB += ft_llonglen.o ft_longtoa.o ft_longtoa_base.o ft_llongtoa.o ft_base_supp.o
 O_LIB += ft_llongtoa_base.o ft_ldbllen.o ft_ldbltoa.o ft_fillzero.o ft_filltenth.o
-O_LIB += ft_strupper.o
+O_LIB += ft_strupper.o ft_fillone.o ft_atoll_base_bin.o
 
 O_SRC =  convert_csp.o convert_diouxXb.o convert_f.o convert_flags.o
 O_SRC += convert_precision.o convert_size.o convert_size_2.o convert_width.o

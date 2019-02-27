@@ -8,7 +8,7 @@ int					main()
 	int			diouxXb;
 	double		f;
 
-	s = "Adam";
+	s = "Adam précédent";
 	diouxXb = 93270;
 	f = 93.270;
 	printf("printf : %# 12.2f %s <--- l'original\n", f, s);

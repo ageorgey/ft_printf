@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_atoi_base_bin.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ageorgey <ageorgey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/26 16:17:18 by ageorgey          #+#    #+#             */
-/*   Updated: 2019/02/26 16:17:20 by ageorgey         ###   ########.fr       */
+/*   Created: 2019/02/26 19:59:03 by ageorgey          #+#    #+#             */
+/*   Updated: 2019/02/26 23:06:48 by ageorgey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include        "libftprintf.h"
 
-size_t			ft_power(size_t nbr, size_t power)
+long long       ft_atoll_base_bin(const char *str)
 {
-	size_t		n;
+    size_t      i;
+    long long   n;
 
-	n = nbr;
-	while (--power)
-		nbr *= n;
-	return (nbr);
+    i = 0;
+    n = 0;
+    while (str[i] == '\t' || str[i] == '\r' || str[i] == '\f' || str[i] == '\v'
+            || str[i] == '\n' || str[i] == ' ')
+        i++;
+    while (str[i] == '0' || str[i] == '1')
+    {
+        n = n * 2 + (str[i] - '0');
+        i++;
+    }
+    return (n);
 }

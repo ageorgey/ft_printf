@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_fillone.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ageorgey <ageorgey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/26 16:17:18 by ageorgey          #+#    #+#             */
-/*   Updated: 2019/02/26 16:17:20 by ageorgey         ###   ########.fr       */
+/*   Created: 2019/02/26 15:49:11 by ageorgey          #+#    #+#             */
+/*   Updated: 2019/02/26 15:49:53 by ageorgey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t			ft_power(size_t nbr, size_t power)
+char			*ft_fillone(size_t p)
 {
-	size_t		n;
+	char		*str;
+	size_t		i;
 
-	n = nbr;
-	while (--power)
-		nbr *= n;
-	return (nbr);
+	i = 0;
+	str = ft_strnew(p);
+	while (i < p)
+		str[i++] = '1';
+	str[i] = '\0';
+	return (str);
 }
